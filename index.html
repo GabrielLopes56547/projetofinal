@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DASHBOARD</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.0/papaparse.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body class="bg-gray-200 h-screen">
+  <img src="img.fundo.png" alt="Imagem de Fundo" class="background-image" />
+
+  <nav class="navbar">
+    <a href="index.html">DASHBOARD</a>
+  </nav>
+
+  <main class="grid grid-cols-[300px_1fr] h-full">
+    <details class="h-full" style="width: 300px; background-color: #303030; border-radius: 5px; overflow: hidden;">
+      <summary style="padding: 10px; cursor: pointer;">Opções</summary>
+      <div class="p-4">
+        <br />
+        <div class="input">
+          <input type="file" id="csvFile" accept=".csv" />
+        </div>
+        <br />
+        <br />
+        <div class="select">
+          <label for="serie">Selecionar Medida:</label>
+          <select class="select" id="series"></select>
+        </div>
+        <br />
+        <br />
+        <div class="export">
+          <a id="download" onclick="exportarGrafico()">Exportar Gráfico</a>
+        </div>
+      </div>
+    </details>
+
+    <section class="grid grid-cols-1 p-8 gap-4" id="chartType">
+      <div class="h-full bg-white rounded-lg box-shadow-md" style="display: flex; justify-content: center">
+        <canvas id="barChart"></canvas>
+      </div>
+
+      <div class="h-full bg-white rounded-lg box-shadow-md" style="display: flex; justify-content: center">
+        <canvas id="pieChart"></canvas>
+      </div>
+
+      <div class="h-full bg-white rounded-lg box-shadow-md" style="display: flex; justify-content: center">
+        <canvas id="lineChart"></canvas>
+      </div>
+    </section>
+
+    <div class="text-center mt-4">
+      <button onclick="mostrarProximoGrafico()">Próximo Gráfico</button>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
